@@ -1,0 +1,14 @@
+Starting etcd docker:
+docker run -it --name Etcd -p 2379:2379  -e "ALLOW_NONE_AUTHENTICATION=yes" -d bitnami/etcd
+
+Redis docker:
+docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+
+MySql docker:
+docker run -d --name MySql -p 3306:3306 mysql/mysql-server:latest
+
+docker-compose up -d
+
+Test:
+curl -i "http://localhost:8888/?url=https://captv.ovh"
+curl -i "http://localhost:8888/expand?shorten=77c47a"
